@@ -5,10 +5,10 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
 import { AppComponent } from './app.component';
+
+// Component imports
 import { BaseLayoutComponent } from './shared';
-import { FooterComponent } from './shared';
 import { HeaderComponent } from './shared';
 import { AuthLayoutComponent } from './shared';
 
@@ -18,7 +18,6 @@ import { AppRoutes } from './app.routing';
   declarations: [
     AppComponent,
     BaseLayoutComponent,
-    FooterComponent,
     HeaderComponent,
     AuthLayoutComponent
   ],

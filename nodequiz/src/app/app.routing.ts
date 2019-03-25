@@ -5,26 +5,26 @@ import {AuthLayoutComponent} from './shared';
 export const AppRoutes: Routes = [
   {
     path: '',
-    component: BaseLayoutComponent,
+    component: AuthLayoutComponent,
     children: [
       {
         path: '',
-        loadChildren: './home/home.module#HomeModule'
+        loadChildren: './session/session.module#SessionModule'
       },
-      {
-        path: 'home',
-        loadChildren: './home/home.module#HomeModule'
-      },
-    ]
-  },
-  {
-    path: '',
-    component: AuthLayoutComponent,
-    children: [
       {
         path: 'session',
         loadChildren: './session/session.module#SessionModule'
       }
+    ]
+  },
+  {
+    path: '',
+    component: BaseLayoutComponent,
+    children: [
+      {
+        path: 'home',
+        loadChildren: './home/home.module#HomeModule'
+      },
     ]
   },
   {

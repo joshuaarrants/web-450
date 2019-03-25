@@ -11,6 +11,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const createError = require('http-errors');
 const config = require('./config');
+let User = require('./models/user');
+
 
 /**
  * MongoDB setup
@@ -39,6 +41,20 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, '../dist/nodequiz')));
 app.use('/', express.static(path.join(__dirname, '../dist/nodequiz')));
 
+/**
+ * API Routes
+ */
+app.post('/api/user', function(req, res, next) {
+  User.findOne({'employeeId': req.body.employeeId}, function(err, user) {
+    if (err) {
+      console.log(err);
+      return next(err);
+    } else {
+      console.log(user);
+      return res.json(user);
+    }
+  })
+});
 
 /**
  * Invalid API calls request handler

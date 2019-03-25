@@ -1,15 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule, MatIconModule} from '@angular/material';
 
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import { SessionRoutes } from './session.routing';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [NotFoundComponent],
+  declarations: [NotFoundComponent, LoginComponent],
   imports: [
     CommonModule,
+    FormsModule, 
+    ReactiveFormsModule,
+    MatFormFieldModule, 
+    MatInputModule, 
+    MatButtonModule, 
+    MatCardModule,
+    MatIconModule,
     RouterModule.forChild(SessionRoutes),
   ]
 })
