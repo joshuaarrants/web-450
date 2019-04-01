@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     this.http.post('/api/user', {
       employeeId: employeeId
     }).subscribe(res => {
-      this.router.navigate(['/home'])
+      this.router.navigate(['/home/quizzes'])
     }, err => {
       console.log(err);
     });

@@ -9,18 +9,19 @@
 mat-card {
     display: flex; 
     flex-direction: column;
-    justify-content: center;
+    justify-content: top;
     align-items: center; 
     width: 50%; 
     height: 50%; 
+    padding: 0px; 
+}
+
+mat-icon {
+    margin: 25px; 
 }
 
 mat-form-field {
     width: 100%;
-}
-
-mat-card-content {
-    margin-top: 25px;
 }
 
 mat-card-actions {

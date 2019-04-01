@@ -12,6 +12,7 @@ const cors = require('cors');
 const createError = require('http-errors');
 const config = require('./config');
 let User = require('./models/user');
+let Quiz = require('./models/quiz');
 
 
 /**
@@ -55,6 +56,18 @@ app.post('/api/user', function(req, res, next) {
     }
   })
 });
+
+app.get('/api/quiz', function(req, res, next) {
+  Quiz.find({}, 'title', function(err, quiz){
+    if (err) {
+      console.log(err);
+      return next(err);
+    } else {
+      console.log(quiz);
+      return res.json(quiz);
+    }
+  })
+})
 
 /**
  * Invalid API calls request handler

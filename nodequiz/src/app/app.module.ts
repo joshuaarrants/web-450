@@ -6,12 +6,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
+import { MatToolbarModule, MatSidenavModule, MatListModule } from '@angular/material'
 
 // Component imports
 import { BaseLayoutComponent } from './shared';
 import { HeaderComponent } from './shared';
 import { AuthLayoutComponent } from './shared';
-
 import { AppRoutes } from './app.routing';
 
 @NgModule({
@@ -19,7 +19,7 @@ import { AppRoutes } from './app.routing';
     AppComponent,
     BaseLayoutComponent,
     HeaderComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent, 
   ],
   imports: [
     BrowserModule,
@@ -29,6 +29,9 @@ import { AppRoutes } from './app.routing';
     ReactiveFormsModule,
     HttpClientModule,
     FlexLayoutModule,
+    MatToolbarModule, 
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

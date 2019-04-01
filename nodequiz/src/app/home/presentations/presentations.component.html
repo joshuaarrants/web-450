@@ -1,0 +1,49 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+
+  <mat-card class="mat-elevation-z8">
+    <mat-card-header>
+      <mat-card-title>DevOps</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <video controls reload="none">
+        <source src="../../../assets/presentations/DevOps.mp4" />
+      </video>
+    </mat-card-content>
+    <mat-card-actions fxLayout="row" fxLayoutAlign="center start">
+      <button mat-raised-button color="primary" (click)="goTest()">Take Test</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card class="mat-elevation-z8">
+      <mat-card-header>
+        <mat-card-title>RESTFul APIs</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <video controls reload="none">
+          <source src="../../../assets/presentations/RESTful APIs.mp4" />
+        </video>
+      </mat-card-content>
+      <mat-card-actions fxLayout="row" fxLayoutAlign="center start">
+        <button mat-raised-button color="primary" (click)="goTest()">Take Test</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="mat-elevation-z8">
+        <mat-card-header>
+          <mat-card-title>JavaScript Enterprise</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <video controls reload="none">
+            <source src="../../../assets/presentations/JavaScript Enterprise.mp4" />
+          </video>
+        </mat-card-content>
+        <mat-card-actions fxLayout="row" fxLayoutAlign="center start">
+          <button mat-raised-button color="primary" (click)="goTest()">Take Test</button>
+        </mat-card-actions>
+      </mat-card>
+
+  <mat-card-actions fxLayout="row" fxFlexFill fxLayoutAlign="end center">
+      <button mat-raised-button color="warn" (click)="close()">Close</button>
+  </mat-card-actions>
+
+</div>

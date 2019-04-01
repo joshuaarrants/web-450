@@ -14,6 +14,10 @@ export const SessionRoutes: Routes = [
         component: LoginComponent
       },
       {
+      path: 'login',
+      component: LoginComponent
+      },
+      {
         path: '404',
         component: NotFoundComponent
       }
