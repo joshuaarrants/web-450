@@ -17,7 +17,7 @@ export const HomeRoutes: Routes = [
         component: QuizSelectionComponent
       },
       {
-        path: 'quiz',
+        path: 'quiz/:id',
         component: QuizComponent
       },
       {

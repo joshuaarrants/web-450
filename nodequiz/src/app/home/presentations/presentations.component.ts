@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-presentations',
   templateUrl: './presentations.component.html',
@@ -7,10 +9,15 @@ import { Router } from '@angular/router'
 })
 export class PresentationsComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  quizzes: any;
 
-  goTest() {
-    this.router.navigate(['/home/quiz']);
+  constructor(private http: HttpClient, private router: Router) {
+    this.http.get('/api/quizzes').subscribe(data => {
+      this.quizzes = data;
+      console.log(this.quizzes);
+    }, err => {
+      console.log(err);
+    })
   }
   
   close() {

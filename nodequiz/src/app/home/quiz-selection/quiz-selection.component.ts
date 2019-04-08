@@ -13,16 +13,12 @@ export class QuizSelectionComponent implements OnInit {
   quizzes: any;
 
   constructor(private http: HttpClient, private router: Router) {
-    this.http.get('/api/quiz').subscribe(data => {
+    this.http.get('/api/quizzes').subscribe(data => {
       this.quizzes = data;
       console.log(this.quizzes);
     }, err => {
       console.log(err);
     })
-  }
-
-  goTest() {
-    this.router.navigate(['/home/quiz']);
   }
 
   goPresentations() {

@@ -1,3 +1,22 @@
-<mat-card-actions fxLayout="row" fxFlexFill fxLayoutAlign="end center">
-    <button mat-raised-button color="warn" (click)="close()">Close</button>
-</mat-card-actions>
+<div fxLayout="row">
+    <div fxFlex></div>
+    <mat-card class="mat-elevation-z8">
+        <mat-toolbar color="primary">
+            <h1>{{quiz.title}}</h1>
+        </mat-toolbar>
+        <form #f="ngForm" (ngSubmit)="onSubmit(f.value); f.reset()">
+            <mat-card-content *ngFor="let question of quiz.questions">
+                <label>{{question.question}}</label>
+                <mat-radio-group>
+                    <mat-radio-button *ngFor="let answer of question.answers" [value]="answer">{{answer.answer}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" routerLink="/home/quizzes/">Cancel</button>
+                <button mat-raised-button color="primary" type="submit">Submit Quiz</button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+    <div fxFlex></div>
+</div>

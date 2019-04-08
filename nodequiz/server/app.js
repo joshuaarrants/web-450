@@ -57,8 +57,20 @@ app.post('/api/user', function(req, res, next) {
   })
 });
 
-app.get('/api/quiz', function(req, res, next) {
-  Quiz.find({}, 'title', function(err, quiz){
+app.get('/api/quizzes', function(req, res, next) {
+  Quiz.find({}, 'title', function(err, quizzes){
+    if (err) {
+      console.log(err);
+      return next(err);
+    } else {
+      console.log(quizzes);
+      return res.json(quizzes);
+    }
+  })
+})
+
+app.get('/api/quizzes/:id', function(req, res, next) {
+  Quiz.findOne({ _id: req.params.id}, function(err, quiz) {
     if (err) {
       console.log(err);
       return next(err);
@@ -66,8 +78,8 @@ app.get('/api/quiz', function(req, res, next) {
       console.log(quiz);
       return res.json(quiz);
     }
-  })
-})
+  });
+});
 
 /**
  * Invalid API calls request handler

@@ -1,0 +1,21 @@
+mat-card {
+  padding: 0;
+}
+
+mat-card-content {
+ margin: 15px;
+}
+
+mat-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+  
+mat-radio-button {
+    margin: 5px;
+  }
+
+mat-card-actions {
+  text-align: center;
+}
