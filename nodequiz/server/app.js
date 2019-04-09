@@ -13,6 +13,7 @@ const createError = require('http-errors');
 const config = require('./config');
 let User = require('./models/user');
 let Quiz = require('./models/quiz');
+let quizResult = require('./models/quizResult');
 
 
 /**
@@ -77,6 +78,29 @@ app.get('/api/quizzes/:id', function(req, res, next) {
     } else {
       console.log(quiz);
       return res.json(quiz);
+    }
+  });
+});
+
+app.post('/api/quizResult', function(req, res, next){
+    let saveQuiz  = new quizResult ({
+    employeeId: req.body.employeeId,
+    quizId: req.body.quizId,
+    title: req.body.title,
+    answers:[{
+    question: req.body.question,
+    selectedAnswer: req.body.selectedAnswer,
+    actualAnswer: req.body.actualAnswer
+    }]
+  });
+  
+  saveQuiz.save(function(err, quizResult) {
+    if (err) {
+      console.log(err);
+      return next(err);
+    } else {
+      console.log(quizResult);
+      res.json(quizResult);
     }
   });
 });

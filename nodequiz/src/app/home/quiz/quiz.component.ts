@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'
 import { HttpClient } from '@angular/common/http';
+import { stringToKeyValue } from '@angular/flex-layout/extended/typings/style/style-transforms';
 
 @Component({
   selector: 'app-quiz',
@@ -17,6 +18,16 @@ export class QuizComponent implements OnInit {
     this.http.get('/api/quizzes/' + this.quizId).subscribe(data => {
       this.quiz = data;
       console.log(this.quiz);
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  saveQuiz() { 
+
+    this.http.post('/api/quizResults', {
+    }).subscribe(res => {
+      this.router.navigate(['/'])
     }, err => {
       console.log(err);
     });
