@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'
 import { HttpClient } from '@angular/common/http';
-import { stringToKeyValue } from '@angular/flex-layout/extended/typings/style/style-transforms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+
 
 @Component({
   selector: 'app-quiz',
@@ -12,8 +13,10 @@ export class QuizComponent implements OnInit {
 
   quizId: string;
   quiz: any;
+  form: FormGroup;
 
-  constructor(private router: Router, private route: ActivatedRoute, private http: HttpClient ) {
+
+  constructor(private router: Router, private route: ActivatedRoute, private http: HttpClient, private fb: FormBuilder ) {
     this.quizId = this.route.snapshot.paramMap.get('id');
     this.http.get('/api/quizzes/' + this.quizId).subscribe(data => {
       this.quiz = data;
@@ -23,9 +26,17 @@ export class QuizComponent implements OnInit {
     });
   }
 
-  saveQuiz() { 
+  ngOnInit() {
+    this.form = this.fb.group({
+      selectedAnswers: ''
+    });
+  }
 
-    this.http.post('/api/quizResults', {
+  saveQuiz() { 
+    const selectedAnswers = this.form.controls['selectedAnswers'].value;
+
+    this.http.post('/api/quizResult', {
+      quizId: this.quizId
     }).subscribe(res => {
       this.router.navigate(['/'])
     }, err => {
@@ -37,6 +48,5 @@ export class QuizComponent implements OnInit {
     this.router.navigate(['/home/quizzes']);
   }
 
-  ngOnInit() {
-  }
+
 }

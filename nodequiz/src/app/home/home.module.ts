@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { RouterModule } from '@angular/router';
 import { HomeRoutes } from './home.routing';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { MatButtonModule, MatCardModule, MatToolbarModule, MatListModule, MatDividerModule, MatProgressBarModule, MatRadioModule} from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -27,6 +27,7 @@ import { PresentationsComponent } from './presentations/presentations.component'
     MatRadioModule,
     ScrollDispatchModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(HomeRoutes)
   ]
 })

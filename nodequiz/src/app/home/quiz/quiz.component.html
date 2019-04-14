@@ -7,7 +7,7 @@
         <form (ngSubmit)="saveQuiz()" [formGroup]="form" #saveQuizForm>
             <mat-card-content *ngFor="let question of quiz.questions">
                 <label>{{question.question}}</label>
-                <mat-radio-group>
+                <mat-radio-group [formControl]="form.controls['selectedAnswers']">
                     <mat-radio-button *ngFor="let answer of question.answers" [value]="answer">{{answer.answer}}
                     </mat-radio-button>
                 </mat-radio-group>
