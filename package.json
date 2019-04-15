@@ -6,7 +6,7 @@
     "start": "ng build && node ./server/app.js",
     "start-ui": "ng serve",
     "start-api": "node ./server/app.js",
-    "build": "ng build && node ./server/app.js",
+    "build": "./server/app.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
