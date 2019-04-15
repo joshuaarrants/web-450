@@ -1,0 +1,23 @@
+<div class="container">
+  <mat-card class="mat-elevation-z8">
+    <mat-toolbar color="primary">
+      <h1>NodeQuiz Login</h1>
+    </mat-toolbar>
+    <mat-icon>person</mat-icon>
+    <form (ngSubmit)="onLogin()" [formGroup]="form" #loginForm>
+      <mat-card-content>
+        <mat-form-field>
+          <input type="text" matInput [formControl]="form.controls['employeeId']" placeholder="Enter Employee ID..." />
+        </mat-form-field>
+        <small style="color: red;"
+          *ngIf="form.controls['employeeId'].hasError('required') && form.controls['employeeId'].touched"> Employe ID is
+          required.
+        </small>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button [disabled]="!form.valid" color="primary">Login</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>
